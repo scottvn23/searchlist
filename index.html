@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.css">
+  <title>Searchlist</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="center-align">
+      My Classmates
+    </h1>
+    <input type="text" id="filterInput" placeholder="Search names...">
+    <ul id="names" class="collection with-header">
+      <li class="collection-header">
+        <h5>Names</h5>
+      </li>
+      <li class="collection-item">
+        <a href="#">David A Brake</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Armani Brown</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Daniel Doherty</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Alexander Eatman</a>
+      </li>
+	  <li class="collection-item">
+        <a href="#">Stephen Faha</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Jacqueline Harper</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Ruthgey Werner Jeanty</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Austin T Malone</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Hung (Scott) Nguyen</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Sukhjit Singh</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Sayeed Uddin</a>
+      </li>
+	  <li class="collection-item">
+        <a href="#">Brendon S Wilcox</a>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    
+    let filterInput = document.getElementById('filterInput');
+   
+    filterInput.addEventListener('keyup', filterNames);
+
+    function filterNames(){
+     
+      let filterValue = document.getElementById('filterInput').value.toUpperCase();
+
+    
+      let ul = document.getElementById('names');
+      
+      let li = ul.querySelectorAll('li.collection-item');
+
+      
+      for(let i = 0;i < li.length;i++){
+        let a = li[i].getElementsByTagName('a')[0];
+        
+        if(a.innerHTML.toUpperCase().indexOf(filterValue) > -1){
+          li[i].style.display = '';
+        } else {
+          li[i].style.display = 'none';
+        }
+      }
+
+    }
+  </script>
+</body>
+</html>
